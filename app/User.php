@@ -7,6 +7,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    protected $table = 'users';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     use Notifiable;
 
     /**
