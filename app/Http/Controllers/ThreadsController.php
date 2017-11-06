@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Thread;
 use App\User;
+use App\Comment;
 use Auth;
 
 class ThreadsController extends Controller
@@ -14,21 +15,26 @@ class ThreadsController extends Controller
     {
         $this->middleware('auth')->only('create', 'store');
     }
+
     public function index()
     {
     	$threads = Thread::latest()->get();
 
     	return view('threads.index', compact('threads'));
     }
+
     public function create()
     {
     	return view('threads.create');
     }
+
     public function show($id)
     {
         $thread = Thread::find($id);
+
+        $comments = Comment::where('thread_id', "=", $thread->id)->orderBy('created_at', 'desc')->get();
      
-        return view('threads.show', compact('thread', 'comments', 'users', 'name'));
+        return view('threads.show', compact('thread', 'comments'));
     }
 
     public function store(Request $request)

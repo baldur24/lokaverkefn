@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Thread extends Model
 {
     protected $table = 'threads';
@@ -13,11 +14,11 @@ class Thread extends Model
 		Return $this->hasMany('App\Comment');
 	}
 
-	Public function user()
+	public function user()
 	{
 		return $this->belongsTo(User::class);
 	}
 
-	protected $fillable = ['title', 'body', 'user_id'];
+	protected $fillable = ['title', 'body', 'user_id', 'thread'];
 
 }

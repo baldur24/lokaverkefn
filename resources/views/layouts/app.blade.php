@@ -6,7 +6,7 @@
 -->
 <html>
     <head>
-        <title>Future Imperfect by HTML5 UP</title>
+        <title>Icelandic Blog</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -25,19 +25,35 @@
                         <nav class="links">
                             <ul>
                                 <li><a href="{{ url('/threads/create') }}">Create Post</a></li>
+                                <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                             </ul>
                         </nav>
-                        <nav class="main">
-                            @if (Route::has('login'))
-                                <div class="top-right links">
-                                    @auth
-                                        <a href="{{ url('/home') }}">Home</a>
-                                    @else
-                                        <a href="{{ route('login') }}">Login</a>
-                                        <a href="{{ route('register') }}">Register</a>
-                                    @endauth
-                                </div>
-                            @endif
+                        <nav>
+                        @guest
+                        <div align="right">
+                            <a href="{{ route('login') }}">Login &zwnj; &zwnj; &zwnj; &zwnj; </a>
+                            <a href="{{ route('register') }}">Register &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; </a>
+                        </div>
+                        @else
+                            
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} &zwnj; &zwnj; &zwnj; &zwnj;  <span class="caret"></span>
+                                </a>
+
+                                    
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    
+                                
+                           
+                        @endguest
                         </nav>
                     </header>
 
@@ -105,7 +121,7 @@
                                 <a href="#" class="logo"><img src="/images/logo.jpg" alt="" /></a>
                                 <header>
                                     <h2>Icelandic Blog</h2>
-                                    <p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
+                                    <p >Welcome to the Icelandic blog where adventurous people share their Icelandic experience.</p>
                                 </header>
                             </section>
 
@@ -210,7 +226,10 @@
                         <!-- About -->
                             <section class="blurb">
                                 <h2>About</h2>
-                                <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+                                <p>We are community made out of adventurous people that love exploring Iceland. 
+                                We value the icelandic nature very highly. 
+                                What you will find on this blog are posts of adventures from 
+                                people traveling to every corner of Iceland.</p>
                                 <ul class="actions">
                                     <li><a href="#" class="button">Learn More</a></li>
                                 </ul>
@@ -219,12 +238,12 @@
                         <!-- Footer -->
                             <section id="footer">
                                 <ul class="icons">
-                                    <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
-                                    <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
-                                    <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+                                    <li><a href="https://twitter.com/icelandair" class="fa-twitter"><span class="label">Twitter</span></a></li>
+                                    <li><a href="https://www.facebook.com/Icelandair/" class="fa-facebook"><span class="label">Facebook</span></a></li>
+                                    <li><a href="https://www.instagram.com/icelandair/?hl=en" class="fa-instagram"><span class="label">Instagram</span></a></li>
                                     <li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
                                 </ul>
-                                <p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+                                <p class="copyright">&copy; Icelandic Blogg. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
                             </section>
 
                     </section>
@@ -235,7 +254,6 @@
             <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/skel.min.js"></script>
             <script src="assets/js/util.js"></script>
-            <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
             <script src="assets/js/main.js"></script>
 
     </body>
