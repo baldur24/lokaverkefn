@@ -19,6 +19,11 @@ class Thread extends Model
 		return $this->belongsTo(User::class);
 	}
 
+	public function commentcounts()
+	{
+		return $this->comments()->count();
+	}
+
 	protected $fillable = ['title', 'body', 'user_id', 'thread'];
 
 }

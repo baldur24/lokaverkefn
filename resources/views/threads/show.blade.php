@@ -21,7 +21,7 @@
 				<footer>
 					<ul class="stats">
 						<li><a href="#" class="icon fa-heart">28</a></li>
-						<li><a href="#" class="icon fa-comment">128</a></li>
+						<li><a href="#" class="icon fa-comment">{{ $thread->commentcounts() }}</a></li>
 					</ul>
 				</footer>
 			</article>

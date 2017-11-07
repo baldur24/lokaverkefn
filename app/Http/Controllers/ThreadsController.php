@@ -33,7 +33,9 @@ class ThreadsController extends Controller
         $thread = Thread::find($id);
 
         $comments = Comment::where('thread_id', "=", $thread->id)->orderBy('created_at', 'desc')->get();
-     
+
+        $commentcounts = Comment::count('thread_id', '=', $thread->id);
+
         return view('threads.show', compact('thread', 'comments'));
     }
 

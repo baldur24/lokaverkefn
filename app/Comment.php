@@ -12,4 +12,9 @@ class Comment extends Model
 	{
 		return $this->belongsTo(User::class);
 	}
+
+	public function commentcount()
+	{
+		return $this->hasMany(Comment::class);
+	}
 }
