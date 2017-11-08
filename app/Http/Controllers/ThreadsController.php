@@ -59,4 +59,31 @@ class ThreadsController extends Controller
 
         return redirect('/threads');
     }
+
+    public function isLikedByMe($id)
+    {
+        $thread = Thread::findOrFail($id)->first();
+        if (Like::whereUserId(Auth::id())->wherePostId($thread->id)->exists()){
+            return 'true';
+        }
+        return 'false';
+    }
+
+    public function like(Thread $thread)
+    {
+        $existing_like = Like::withTrashed()->wherePostId($thread->id)->whereUserId(Auth::id())->first();
+
+        if (is_null($existing_like)) {
+            Like::create([
+                'thread_id' => $thread->id,
+                'user_id' => Auth::id()
+            ]);
+        } else {
+            if (is_null($existing_like->deleted_at)) {
+                $existing_like->delete();
+            } else {
+                $existing_like->restore();
+            }
+        }
+    }
 }

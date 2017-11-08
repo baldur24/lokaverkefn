@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Thread;
 
 class User extends Authenticatable
 {
@@ -13,6 +14,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likedPosts()
+    {
+        return $this->morphedByMany('App\Thread', 'likeable')->whereDeletedAt(null);
+    }
+
     use Notifiable;
 
     /**

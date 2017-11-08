@@ -22,7 +22,22 @@
 				<p>{{ $thread->body }}</p>
 				<footer>
 					<ul class="stats">
-						<li><a href="#" class="icon fa-heart">28</a></li>
+
+
+						
+							@foreach ($thread->likes as $user)
+							<li><a href="#" class="icon fa-heart">{{ $user->name }} likes this !</a></li>
+							@endforeach
+							@if ($thread->isLiked)
+						        <a href="{{ route('thread.like', $thread->id) }}" class="icon fa-heart"></a>
+						    @else
+						        <a href="{{ route('thread.like', $thread->id) }}" class="icon fa-heart"></a>
+						    @endif
+						
+
+
+
+
 						<li><a href="/threads/{{ $thread->id }}" class="icon fa-comment">{{ $thread->commentcounts() }}</a></li>
 					</ul>
 				</footer>

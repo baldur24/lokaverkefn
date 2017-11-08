@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 
 class Thread extends Model
@@ -23,6 +24,17 @@ class Thread extends Model
 	{
 		return $this->comments()->count();
 	}
+
+    public function likes()
+    {
+        return $this->morphToMany('App\User', 'likeable')->whereDeletedAt(null);
+    }
+
+    public function getIsLikedAttribute()
+    {
+        $like = $this->likes()->whereUserId(Auth::id())->first();
+        return (!is_null($like)) ? true : false;
+    }
 
 	protected $fillable = ['title', 'body', 'user_id', 'thread'];
 
