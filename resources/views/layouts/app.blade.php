@@ -13,6 +13,11 @@
         <link rel="stylesheet" href="/css/main.css" />
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
 
@@ -21,9 +26,11 @@
 
                 <!-- Header -->
                     <header id="header">
-                        <h1><a href="{{ url('/threads') }}">Icelandic Blog</a></h1>
+                        
+
                         <nav class="links">
                             <ul>
+                                <li><a href="{{ url('/threads') }}">Icelandic Blog</a></li>
                                 <li><a href="{{ url('/threads/create') }}">Create Post</a></li>
                                 <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                             </ul>
@@ -36,8 +43,8 @@
                         </div>
                         @else
                             
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} &zwnj; &zwnj; &zwnj; &zwnj;  <span class="caret"></span>
+                                <a role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} &zwnj; &zwnj; &zwnj; &zwnj; 
                                 </a>
 
                                     
@@ -57,47 +64,20 @@
                         </nav>
                     </header>
 
-                <!-- Menu -->
-                    <section id="menu">
 
-                        <!-- Links -->
-                            <section>
-                                <ul class="links">
-                                    <li>
-                                        <a href="#">
-                                            <h3>Lorem ipsum</h3>
-                                            <p>Feugiat tempus veroeros dolor</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h3>Dolor sit amet</h3>
-                                            <p>Sed vitae justo condimentum</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h3>Feugiat veroeros</h3>
-                                            <p>Phasellus sed ultricies mi congue</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h3>Etiam sed consequat</h3>
-                                            <p>Porta lectus amet ultricies</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </section>
 
                         <!-- Actions -->
-                            <section>
-                                <ul class="actions vertical">
-                                    <li><a href="#" class="button big fit">Log In</a></li>
-                                </ul>
-                            </section>
+
 
                     </section>
+
+                @if ($flash = session('message'))
+                    <div id="flash-message" class="alert alert-success" role="alert">
+                    
+                        {{ $flash }}
+
+                    </div>
+                @endif
 
                 @yield('content')
 
@@ -121,6 +101,7 @@
                                 <a href="#" class="logo"><img src="/images/logo.jpg" alt="" /></a>
                                 <header>
                                     <h2>Icelandic Blog</h2>
+                                    <br>
                                     <p >Welcome to the Icelandic blog where adventurous people share their Icelandic experience.</p>
                                 </header>
                             </section>
@@ -135,9 +116,6 @@
                                 We value the icelandic nature very highly. 
                                 What you will find on this blog are posts of adventures from 
                                 people traveling to every corner of Iceland.</p>
-                                <ul class="actions">
-                                    <li><a href="#" class="button">Learn More</a></li>
-                                </ul>
                             </section>
 
                         <!-- Footer -->

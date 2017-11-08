@@ -26,6 +26,10 @@ class ContactController extends Controller
             'user_id' => auth()->id()
         ]);
 
+        session()->flash(
+            'message', 'Your message has been recieved.'
+        );
+
         return redirect('/contact');
     }
 }

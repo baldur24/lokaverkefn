@@ -5,6 +5,7 @@
 <section>
     @include('common.errors')
     <h3>Contact Us</h3>
+    <br>
     <form method="POST" action="/contact">
         {{ csrf_field() }}
         <div class="row uniform">

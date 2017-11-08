@@ -5,6 +5,7 @@
 <section>
     @include('common.errors')
     <h3>Create Post</h3>
+    <br>
     <form method="POST" action="/threads">
         {{ csrf_field() }}
         <div class="row uniform">

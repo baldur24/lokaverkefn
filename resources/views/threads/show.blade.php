@@ -54,7 +54,7 @@
 						</div>
 						<div class="meta">
 							<time class="published" >{{ $comment->created_at }}</time>
-							<a href="#" class="author"><span class="name"></span>{{ $comment->user->name }}<img src="/images/avatar.jpg" alt="" /></a>
+							<div class="author"><span class="name"></span>{{ $comment->user->name }}<img src="/images/avatar.jpg" alt="" /></div>
 						</div>
 				</header>
 			</article>
