@@ -14,7 +14,7 @@
 													
 					</div>
 					<div class="meta">
-						<time class="published" datetime="2015-11-01">{{ $thread->created_at }}</time>
+						<time class="published" datetime="2015-11-01">{{ $thread->created_at->diffForHumans() }}</time>
 						<div class="author"><span class="name"></span>{{ $thread->user->name }}<img src="images/avatar.jpg" alt="" /></div>
 					</div>
 				</header>
