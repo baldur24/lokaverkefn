@@ -29,4 +29,9 @@ class Like extends Model
     {
         return $this->morphedByMany('App\Thread', 'likeable');
     }
+
+    public function likecount()
+	{
+		return $this->hasMany(Comment::class);
+	}
 }

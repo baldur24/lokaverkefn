@@ -20,7 +20,13 @@
 				<p>{{ $thread->body }}</p>
 				<footer>
 					<ul class="stats">
-						<li><a href="#" class="icon fa-heart"></a></li>
+							<li><a href="{{ route('thread.like', $thread->id) }}" class="icon fa-heart">{{ $thread->likecounts() }}</a></li>
+							
+							@if ($thread->isLiked)
+						        <a href="{{ route('thread.like', $thread->id) }}" class=""></a>
+						    @else
+						        <a href="{{ route('thread.like', $thread->id) }}" class=""></a>
+						    @endif
 						<li><a href="#" class="icon fa-comment">{{ $thread->commentcounts() }}</a></li>
 					</ul>
 				</footer>

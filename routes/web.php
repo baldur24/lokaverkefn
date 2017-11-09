@@ -25,4 +25,4 @@ route::get('/contact', 'ContactController@contactview');
 route::post('/contact', 'ContactController@contactsent')->middleware('auth');
 
 
-Route::get('thread/like/{id}', ['as' => 'thread.like', 'uses' => 'LikeController@likeThread']);
+Route::get('thread/like/{id}', ['as' => 'thread.like', 'uses' => 'LikeController@likeThread'])->middleware('auth');

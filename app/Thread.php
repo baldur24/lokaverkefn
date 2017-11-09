@@ -25,6 +25,11 @@ class Thread extends Model
 		return $this->comments()->count();
 	}
 
+	public function likecounts()
+	{
+		return $this->likes()->count();
+	}
+
     public function likes()
     {
         return $this->morphToMany('App\User', 'likeable')->whereDeletedAt(null);

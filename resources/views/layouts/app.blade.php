@@ -18,9 +18,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body>
-
+        
         <!-- Wrapper -->
             <div id="wrapper">
 
@@ -98,7 +99,7 @@
 
                         <!-- Intro -->
                             <section id="intro">
-                                <a href="#" class="logo"><img src="/images/logo.jpg" alt="" /></a>
+                                <div class="logo"><img src="/images/logo.jpg" alt="" /></div>
                                 <header>
                                     <h2>Icelandic Blog</h2>
                                     <br>
@@ -138,6 +139,6 @@
             <script src="assets/js/skel.min.js"></script>
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
-
+            
     </body>
 </html>
