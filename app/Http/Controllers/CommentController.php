@@ -22,4 +22,11 @@ class CommentController extends Controller
 
         return back();
     }
+
+    public function deletecomment(Request $request){
+    		$id = $request->id;
+    		$dltcmt = Comment::find($id);
+    		$dltcmt->delete();
+    		return back();
+    }
 }

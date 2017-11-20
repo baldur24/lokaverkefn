@@ -62,6 +62,15 @@
 							<time class="published" >{{ $comment->created_at }}</time>
 							<div class="author"><span class="name"></span>{{ $comment->user->name }}<img src="/images/avatar.jpg" alt="" /></div>
 						</div>
+						<form action="{{ url('threads/'.$comment->id) }}" method="POST">
+							<input type="hidden" name="_method" value="DELETE">
+		            		{{ csrf_field() }}
+		            		{{ method_field('DELETE') }}
+
+		            		<button type="submit" class="btn btn-danger">
+		                		<i class="fa fa-trash"></i> Delete
+		            		</button>
+		        		</form>
 				</header>
 			</article>
 			@endforeach

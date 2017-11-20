@@ -86,4 +86,10 @@ class ThreadsController extends Controller
             }
         }
     }
+    public function deletethread(Request $request){
+            $id = $request->id;
+            $dltcmt = Thread::find($id);
+            $dltcmt->delete();
+            return back();
+    }
 }

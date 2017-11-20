@@ -38,7 +38,21 @@
 
 
 
-						<li><a href="/threads/{{ $thread->id }}" class="icon fa-comment">{{ $thread->commentcounts() }}</a></li>
+						<li><a href="/threads/{{ $thread->id }}" class="icon fa-comment">{{ $thread->commentcounts() }}
+						</a></li>
+
+						<br>
+						<br>
+
+						<form action="{{ url('threads/'.$thread->id) }}" method="POST">
+							<input type="hidden" name="_method" value="DELETE">
+		            		{{ csrf_field() }}
+		            		{{ method_field('DELETE') }}
+
+		            		<button type="submit" class="btn btn-danger">
+		                		<i class="fa fa-trash"></i> Delete
+		            		</button>
+		        		</form>
 					</ul>
 				</footer>
 			</article>
